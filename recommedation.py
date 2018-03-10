@@ -39,20 +39,15 @@ print('done!')
 # In[54]:
 
 
-# hacky little function to get a friendly item name from the description field, given an item ID
+#function to get a friendly item name from the description field, given an item ID
 def item(id):
     return ds.loc[ds['id'] == id]['description'].tolist()[0].split(' - ')[0]
 
-# Just reads the results out of the dictionary. No real logic here.
 def recommend(item_id, num):
     print("Recommending " + str(num) + " products similar to " + item(item_id) + "...")
     print("-------")
     recs = results[item_id][:num]
     for rec in recs:
         print("Recommended: " + item(rec[1]) + " (score:" + str(rec[0]) + ")")
-
-# Just plug in any item id here (1-500), and the number of recommendations you want (1-99)
-# You can get a list of valid item IDs by evaluating the variable 'ds', or a few are listed below
-
 recommend(item_id=1, num=5)
 
