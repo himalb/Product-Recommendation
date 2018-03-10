@@ -39,7 +39,7 @@ print('done!')
 # In[54]:
 
 
-#function to get a friendly item name from the description field, given an item ID
+#function to get a friendly item name from the description field using item ID
 def item(id):
     return ds.loc[ds['id'] == id]['description'].tolist()[0].split(' - ')[0]
 
